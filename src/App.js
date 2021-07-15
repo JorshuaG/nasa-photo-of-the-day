@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import { API_Key, BASE_URL } from "./index";
+import NasaCard from "./nasaCard";
 
 function App() {
   const [data, setData] = useState([]);
@@ -17,23 +18,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun{" "}
-        <span role="img" aria-label="go!">
-          🚀
-        </span>
-        !
-      </p> */}
-      <h1>{data.title}</h1>
-      <h2>{data.date}</h2>
-      <iframe
-        width="800"
-        height="450"
-        title="youtubeEmbed"
-        src="https://www.youtube.com/embed/V_Kd4YBNs7c?rel=0"
+      <NasaCard
+        title={data.title}
+        date={data.date}
+        mediaType={data.media_type}
+        mediaUrl={data.url}
+        description={data.explanation}
       />
-      <p>{data.explanation}</p>
     </div>
   );
 }
